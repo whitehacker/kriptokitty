@@ -1,5 +1,19 @@
-# kriptokitty
-Based on my analysis the Data Model for the given task is depicted as follow: 
+# KriptoKitty Crypto-Asset Exchange API
+Welcome to the KriptoKitty Crypto-Asset Exchange API repository. This project serves as a significant contribution to the crypto exchange platform domain by providing a streamlined and efficient mechanism for managing crypto-asset withdrawals.
+
+## Overview
+In the rapidly evolving landscape of cryptocurrency exchanges, there's a constant need for reliable and efficient systems to manage asset deposits and withdrawals. Users typically deposit funds (like BTC) into an exchange, engage in trading activities (like swapping BTC for ETH), and, once they achieve their desired gains, they transfer their assets to an external wallet or another exchange.
+
+KriptoKitty API offers a solution to this by introducing a simplified functionality for crypto-asset withdrawals. All interactions with the blockchain and crypto-asset transfers are channeled through our robust backend, ensuring the smooth processing of transactions.
+
+## Simplified Withdrawal Flow:
+* User Wallets: Every user has a distinct wallet on the exchange for each asset type. This wallet tracks the user's balance for that specific asset.
+* Withdrawal Request: Users can initiate withdrawals, specifying the amount of a particular asset (e.g., ETH).
+* Pre-condition Checks: The system verifies certain pre-conditions before processing the withdrawal.
+* Blockchain Transaction: If all checks pass, the specified amount is deducted from the user's exchange wallet, and a blockchain transaction is set in motion.
+* Transaction Status: Our system updates the transaction's status and logs additional data (like the blockchain transaction hash and network fees) once the transaction has been processed.
+
+### Data Model 
 ![alt text](https://github.com/whitehacker/kriptokitty/blob/main/gx/db.png?raw=true)
 
 ## Run the Application
@@ -12,13 +26,10 @@ Based on my analysis the Data Model for the given task is depicted as follow:
     1. `brew install postgresql` (macOS)
     2. `sudo apt install postgresql postgresql-contrib` (Linux - Ubuntu)
 4. Open `main.py` and add your database credentials
-    1. You can use my below Heroku Database URL if you like to host the databasee on Heroku
-        - `engine = engine = create_engine('postgresql://hhjardtsyafudh:369cb6e16691ec547da99b7ee1579ef52678f72e8c1dc1e7d85ddba477ea1e5b@ec2-18-210-64-223.compute-1.amazonaws.com:5432/d19bk58uf580m2')`
-    2. Or you can use your local DB engine but you should add your database credentials
-        - `engine = engine = create_engine('postgresql://postgres:postgres@localhost/kriptokitty')`
+    2. You should add your database credentials (PostgreSQL)
+        - `engine = engine = create_engine('postgresql://username:password@localhost/database_name')`
 5. Run the application
     - Open a new terminal and execute the below command:
         - `uvicorn main:app --reload`
 6. View the Endpoints and utilize the API
     - Open a browser window and navigation to `127.0.0.1:8000/docs` (make sure you are accessing the right IP and port number)
-7. For easy access, the API is hosted on Heroku servers and can be accessed at <https://kriptokitty.herokuapp.com/docs#/>
